@@ -22,6 +22,4 @@ describe('Testes da função HandlerElephants', () => {
   it('Não passando argumentos a função deve retornar', () => {
     expect(handlerElephants()).toBeUndefined();
   });
-  
-
 });
