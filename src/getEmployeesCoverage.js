@@ -13,10 +13,10 @@ employees.forEach((employ) => {
   creating.push({
     id: employ.id,
     fullName: `${employ.firstName} ${employ.lastName}`,
-    species: species.filter((animale) =>
-      employ.responsibleFor.includes(animale.id)).map((nombre) => nombre.name),
-    locations: species.filter((animal) =>
-      employ.responsibleFor.includes(animal.id)).map((local) => local.location),
+    species: species.filter(({ id }) =>
+      employ.responsibleFor.includes(id)).map(({ name }) => name),
+    locations: species.filter(({ id }) =>
+      employ.responsibleFor.includes(id)).map(({ location }) => location),
   });
 });
 
@@ -28,10 +28,12 @@ const getEmployeesCoverage = (para) => {
   if (creating.find((employ) => employ.id === id)) {
     return creating.find((employ) => employ.id === id);
   }
-  if (creating.find((employ2) => employ2.fullName.includes((name)))) {
-    return creating.find((employ2) => employ2.fullName.includes(name));
+  if (creating.find(({ fullName }) => fullName.includes((name)))) {
+    return creating.find(({ fullName }) => fullName.includes(name));
   }
   throw new Error('Informações inválidas');
 };
+
+// console.log(getEmployeesCoverage({name:'Ola'}))
 
 module.exports = getEmployeesCoverage;
