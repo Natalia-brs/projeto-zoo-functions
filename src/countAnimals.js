@@ -2,7 +2,6 @@ const { species } = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
 const countAnimals = (animal) => {
-  const { specie, sex } = animal;
   if (animal === undefined) {
     const count = {};
     species.forEach((especie) => {
@@ -10,15 +9,13 @@ const countAnimals = (animal) => {
     });
     return count;
   }
-  if (specie && sex) {
-    return species.find(({ name }) => specie.includes((name))).residents
-      .filter((animal1) => animal.sex === animal1.sex).length;
+  if (animal.specie && animal.sex) { // 2
+    return species.find((especie) => animal.specie === especie.name).residents
+      .filter((sex) => animal.sex === sex.sex).length;
   }
-  return species.find(({ name }) => specie.includes((name))).residents.length;
+  return species.find((especiee) => animal.specie === especiee.name).residents.length;
 };
 
-// .filter(({ sex }) => sex.includes((sex))).length; poderia deixar assim, mas o lint da erro
-
-console.log(countAnimals({ specie: 'penguins', sex: 'female' }));
+console.log(countAnimals({ specie: 'bears' }));
 
 module.exports = countAnimals;

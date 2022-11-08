@@ -28,12 +28,12 @@ const getEmployeesCoverage = (para) => {
   if (creating.find((employ) => employ.id === id)) {
     return creating.find((employ) => employ.id === id);
   }
-  else if (creating.find(({ fullName }) => fullName.includes((name)))) {
+  if (creating.find(({ fullName }) => fullName.includes((name)))) {
     return creating.find(({ fullName }) => fullName.includes(name));
   }
   throw new Error('Informações inválidas');
 };
 
-console.log(getEmployeesCoverage({name:'Ola'}))
+console.log(getEmployeesCoverage({ name: 'Ola' }));
 
 module.exports = getEmployeesCoverage;
