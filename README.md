@@ -1,5 +1,5 @@
 # Boas-vindas ao repositório do projeto Zoo Functions realizado na Trybe durante o modulo de Fundamentos!
-   Nesse projeto utilizamos as Hofs para resolver alguns desafios propostos no projeto
+   Nesse projeto utilizamos as Hofs para resolver alguns desafios propostos.
 
 # Requisitos Obrigatórios
 
